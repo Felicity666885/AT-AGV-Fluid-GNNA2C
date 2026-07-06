@@ -1,0 +1,14 @@
+name: at-agv-fluid-gnna2c
+channels:
+  - conda-forge
+  - pytorch
+dependencies:
+  - python>=3.11
+  - numpy>=2.0
+  - matplotlib>=3.8
+  - pyyaml>=6.0
+  - pip
+  - pip:
+      - torch>=2.4
+      - ortools>=9.10
+

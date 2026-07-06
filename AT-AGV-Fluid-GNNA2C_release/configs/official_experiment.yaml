@@ -1,0 +1,32 @@
+experiment_name: MSAIV610A_K64_official
+scenario_path: data/processed/scenario_MSAIV610A_processed.json
+output_dir: outputs/official_experiment
+vessel: MSAIV610A
+task_count: 3207
+region_count: 16
+directed_edge_count: 34
+fleet_size: 64
+initial_idle_distribution: [4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4]
+decision_period_min: 15
+feature_scales: [64, 500, 64, 64, 64, 5]
+reward_config:
+  service_reward_per_task: 10.0
+  loaded_cost_per_vehicle_minute: 0.1
+  rebalancing_cost_per_vehicle_minute: 0.1
+  waiting_cost_per_task_minute: 0.01
+  reward_scale: 100.0
+a2c_config:
+  gamma: 0.95
+  n_steps: 5
+  entropy_coef: 0.01
+  actor_lr: 0.0001
+  critic_lr: 0.0001
+  max_grad_norm: 0.5
+  arrival_window_steps: 4
+  transit_clear_tolerance: 0.000001
+formal_seeds: [20260801, 20260811, 20260821]
+episodes: 1000
+checkpoint_interval: 10
+max_decision_steps: 1000
+max_updates: 1000
+

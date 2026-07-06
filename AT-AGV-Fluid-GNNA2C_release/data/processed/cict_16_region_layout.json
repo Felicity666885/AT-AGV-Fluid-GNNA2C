@@ -1,0 +1,81 @@
+{
+  "layout_name": "CICT_16_region_paper_schematic",
+  "layout_status": "validated_abstract_schematic",
+  "coordinate_system": {
+    "x": "column index increasing left to right",
+    "y": "schematic row coordinate increasing bottom to top",
+    "units": "abstract layout units"
+  },
+  "disclaimer": "This layout is an abstract paper schematic and does not represent surveyed geographic boundaries or a Google-map base layer.",
+  "display_rows": [
+    ["Q1", "Q2", "Q3", "Q4"],
+    ["S1", "S4", "S7", "S10"],
+    ["S2", "S5", "S8", "S11"],
+    ["S3", "S6", "S9", "S12"]
+  ],
+  "canonical_region_order": [
+    "Q1", "Q2", "Q3", "Q4", "S1", "S2", "S3", "S4",
+    "S5", "S6", "S7", "S8", "S9", "S10", "S11", "S12"
+  ],
+  "regions": [
+    {"name": "Q1", "type": "QC", "row": 0, "column": 0, "center": [0.0, 3.0]},
+    {"name": "Q2", "type": "QC", "row": 0, "column": 1, "center": [1.0, 3.0]},
+    {"name": "Q3", "type": "QC", "row": 0, "column": 2, "center": [2.0, 3.0]},
+    {"name": "Q4", "type": "QC", "row": 0, "column": 3, "center": [3.0, 3.0]},
+    {"name": "S1", "type": "YARD", "row": 1, "column": 0, "center": [0.0, 2.0]},
+    {"name": "S2", "type": "YARD", "row": 2, "column": 0, "center": [0.0, 1.0]},
+    {"name": "S3", "type": "YARD", "row": 3, "column": 0, "center": [0.0, 0.0]},
+    {"name": "S4", "type": "YARD", "row": 1, "column": 1, "center": [1.0, 2.0]},
+    {"name": "S5", "type": "YARD", "row": 2, "column": 1, "center": [1.0, 1.0]},
+    {"name": "S6", "type": "YARD", "row": 3, "column": 1, "center": [1.0, 0.0]},
+    {"name": "S7", "type": "YARD", "row": 1, "column": 2, "center": [2.0, 2.0]},
+    {"name": "S8", "type": "YARD", "row": 2, "column": 2, "center": [2.0, 1.0]},
+    {"name": "S9", "type": "YARD", "row": 3, "column": 2, "center": [2.0, 0.0]},
+    {"name": "S10", "type": "YARD", "row": 1, "column": 3, "center": [3.0, 2.0]},
+    {"name": "S11", "type": "YARD", "row": 2, "column": 3, "center": [3.0, 1.0]},
+    {"name": "S12", "type": "YARD", "row": 3, "column": 3, "center": [3.0, 0.0]}
+  ],
+  "directed_edges": [
+    {"source": "Q1", "destination": "S1"},
+    {"source": "Q2", "destination": "Q1"},
+    {"source": "Q3", "destination": "Q2"},
+    {"source": "Q4", "destination": "Q3"},
+    {"source": "S1", "destination": "Q1"},
+    {"source": "S1", "destination": "S2"},
+    {"source": "S1", "destination": "S4"},
+    {"source": "S2", "destination": "S1"},
+    {"source": "S2", "destination": "S3"},
+    {"source": "S2", "destination": "S4"},
+    {"source": "S2", "destination": "S5"},
+    {"source": "S3", "destination": "S2"},
+    {"source": "S3", "destination": "S5"},
+    {"source": "S3", "destination": "S6"},
+    {"source": "S3", "destination": "S7", "rendering_note": "nonlocal model edge; render as a curved schematic connection"},
+    {"source": "S4", "destination": "Q2"},
+    {"source": "S4", "destination": "S7"},
+    {"source": "S5", "destination": "S4"},
+    {"source": "S5", "destination": "S7"},
+    {"source": "S5", "destination": "S8"},
+    {"source": "S6", "destination": "S5"},
+    {"source": "S6", "destination": "S8"},
+    {"source": "S6", "destination": "S9"},
+    {"source": "S7", "destination": "Q3"},
+    {"source": "S7", "destination": "S10"},
+    {"source": "S8", "destination": "S7"},
+    {"source": "S8", "destination": "S10"},
+    {"source": "S8", "destination": "S11"},
+    {"source": "S9", "destination": "S8"},
+    {"source": "S9", "destination": "S11"},
+    {"source": "S9", "destination": "S12"},
+    {"source": "S10", "destination": "Q4"},
+    {"source": "S11", "destination": "S10"},
+    {"source": "S12", "destination": "S11"}
+  ],
+  "validation": {
+    "scenario_region_count": 16,
+    "model_directed_edge_count": 34,
+    "result": "passed_with_explicit_nonlocal_edge",
+    "nonlocal_edges": ["S3->S7"],
+    "interpretation": "Grid proximity is not used to add, remove, or reverse model edges. All 34 scenario E_G edges remain authoritative."
+  }
+}
